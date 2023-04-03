@@ -248,7 +248,7 @@ UserRouter.get('/user', auth, authAdmin, async (req, res) => {
 
 
 // LOGIN de Usuario/ Vendedor
-// GET
+
 UserRouter.post('/login', async (req, res) => {
     try {
         const {

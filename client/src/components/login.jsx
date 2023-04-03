@@ -33,6 +33,19 @@ const Login = () => {
         const response = await axios.post('http://localhost:5000/api/login', {...user})
         console.log(response.data)
         setSuccessM(response.data.message)
+
+        // guardar información del usuario en la memoria del navegador
+        localStorage.setItem('token', response.data.accessToken)
+        localStorage.setItem('name', response.data.user.name)
+        localStorage.setItem('companyName', response.data.user.companyName)
+        localStorage.setItem('role', response.data.user.role)
+
+
+      // con esta función le indico que despues del tiempo que le indique me redireccione a una ruta indicada
+      setTimeout(()=>{
+        window.location.href = '/' //si pongo solo la barra va directamente al endpoint de partida
+      }, 3000) //el tiempo que demora en ir al endpoint en milisegundos
+
       } catch (error) {
         setErrorM(error.response.data.message)
       }

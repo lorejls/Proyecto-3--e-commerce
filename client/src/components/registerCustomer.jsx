@@ -52,7 +52,7 @@ const RegisterCustomer = () => {
             Nombre
           </Label>
           <Input
-            id="name"
+            id="nameCustomer"
             name="name"
             value={user.name}
             placeholder="Escribe tu nombre"
@@ -65,7 +65,7 @@ const RegisterCustomer = () => {
             Apellido
           </Label>
           <Input
-            id="surname"
+            id="surnameCustomer"
             name="surname"
             value={user.surname}
             placeholder="Escribe tu apellido"
@@ -78,7 +78,7 @@ const RegisterCustomer = () => {
             Correo
           </Label>
           <Input
-            id="email"
+            id="emailCustomer"
             name="email"
             value={user.email}
             placeholder="Escribe tu correo"
@@ -91,7 +91,7 @@ const RegisterCustomer = () => {
             Contraseña
           </Label>
           <Input
-            id="password"
+            id="passwordCustomer"
             name="password"
             value={user.password}
             placeholder="Escribe tu contraseña"
@@ -104,7 +104,7 @@ const RegisterCustomer = () => {
             Dirección
           </Label>
           <Input
-            id="address"
+            id="addressCustomer"
             name="address"
             value={user.address}
             placeholder="Escribe tu dirección"
@@ -126,11 +126,11 @@ const RegisterCustomer = () => {
           />
         </FormGroup>{" "}
         <FormGroup>
-          <Label for="postCode" hidden>
+          <Label for="postCodeCustomer" hidden>
             Dirección
           </Label>
           <Input
-            id="postCode"
+            id="postCodeCustomer"
             name="postCode"
             value={user.postCode}
             placeholder="Escribe tu código postal"
@@ -143,7 +143,7 @@ const RegisterCustomer = () => {
             Número de contacto
           </Label>
           <Input
-            id="contactNumber"
+            id="contactNumCustomer"
             name="contactNumber"
             value={user.contactNumber}
             placeholder="Escribe tu numero de contacto"
