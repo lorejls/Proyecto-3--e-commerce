@@ -1,20 +1,23 @@
 import React from 'react';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import HeaderNav from './components/navBar';
-import Login from './components/login';
-import RegisterSeller from './components/registerSeller';
-import RegisterCustomer from './components/registerCustomer';
+import {Routes, Route} from 'react-router-dom';
+import Login from '../login';
+import Home from '../home'
+import RegisterSeller from '../registerSeller';
+import RegisterCustomer from '../registerCustomer';
+import Profile from '../perfil';
 
 
-function Pages() {
+const Pages = () => {
+
   return (
-    <div>
-        <HeaderNav/>
-        <Login/>
-        <RegisterSeller/>
-        <RegisterCustomer/>
-    </div>
-  )
+      <Routes>
+        <Route path='/login' element= {<Login/>}/>
+        <Route path='/' element= {<Home/>}/>
+        <Route path='/registerseller' element= {<RegisterSeller/>}/>
+        <Route path='/registercustomer' element= {<RegisterCustomer/>}/>
+        <Route path='/my-profile' element= {<Profile/>}/>
+      </Routes>
+  );
 }
 
 export default Pages;

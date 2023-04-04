@@ -1,6 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav'
+import Logo1 from './img/LOGO-white.png'
+import Button from 'react-bootstrap/Button';
+import {Link} from 'react-router-dom'
 
 const HeaderNav = () =>{
     const [role, setRole] = useState(null)
@@ -24,11 +28,17 @@ const HeaderNav = () =>{
     <div>
       {
         role == 0 && (
-          <Navbar expand="lg" variant="light" bg="light">
-              <Container>
-                <Navbar.Brand href="#">Hola, comprador {name}</Navbar.Brand>
-              </Container>
-            </Navbar>
+          <Navbar className='navbar'>
+        <Container>
+          <Navbar.Brand href="#home"><img src={Logo1} alt="logo mercat" /></Navbar.Brand>
+          <Nav className="nav">
+            <Nav.Link href="#home">NOSOTROS</Nav.Link>
+            <Nav.Link href="#features">PRODUCTOS</Nav.Link>
+            <Nav.Link href="#pricing">CONTACTO</Nav.Link>
+            <Navbar.Brand href="#">Hola,usuario {name}</Navbar.Brand>
+          </Nav>
+        </Container>
+      </Navbar>
         )
       }
     {
@@ -51,11 +61,17 @@ const HeaderNav = () =>{
   }
   {
     role === null && (
-      <Navbar expand="lg" variant="light" bg="light">
-               <Container>
-                 <Navbar.Brand href="#">Hola, no estás logeado</Navbar.Brand>
-               </Container>
-             </Navbar>
+      <Navbar className='navbar'>
+        <Container>
+          <Navbar.Brand href="#home"><img src={Logo1} alt="logo mercat" /></Navbar.Brand>
+          <Nav className="nav">
+            <Nav.Link href="#home">NOSOTROS</Nav.Link>
+            <Nav.Link href="#features">PRODUCTOS</Nav.Link>
+            <Nav.Link href="#pricing">CONTACTO</Nav.Link>
+            <Button variant="dark"><Link to={'/login'}>INGRESAR</Link></Button>
+          </Nav>
+        </Container>
+      </Navbar>
     )
   }
     

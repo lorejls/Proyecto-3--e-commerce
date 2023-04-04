@@ -245,6 +245,28 @@ UserRouter.get('/user', auth, authAdmin, async (req, res) => {
     }
 })
 
+// GET de mi perfil
+UserRouter.get('/user_profile', auth, async (req, res) => {
+    try {
+        let user = await User.findById(req.user.id)
+        if (!user) {
+            return res.status(400).send({
+                success: false,
+                message: 'No encontramos al usuario en la base de datos'
+            })
+        }
+        return res.status(200).send({
+            success: true,
+            message: 'Usuario encontrado con éxito',
+            user
+        })
+    } catch (error) {
+        return res.status(500).send({
+            success: false,
+            message: error.message
+        })
+    }
+})
 
 
 // LOGIN de Usuario/ Vendedor
@@ -346,6 +368,7 @@ UserRouter.put('/seller', auth, authAdmin, async (req, res)=>{
     }
 })
 
+
 // elimino un usuario
 // DELETE
 UserRouter.delete('/user/:id', auth, authAdmin, async (req, res)=>{
@@ -371,4 +394,5 @@ UserRouter.delete('/user/:id', auth, authAdmin, async (req, res)=>{
         })
     }
 })
+
 module.exports = UserRouter
