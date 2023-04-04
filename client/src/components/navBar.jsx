@@ -60,7 +60,7 @@ const HeaderNav = () =>{
     )
   }
   {
-    role === null && (
+    role == null && (
       <Navbar className='navbar'>
         <Container>
           <Navbar.Brand href="#home"><img src={Logo1} alt="logo mercat" /></Navbar.Brand>
