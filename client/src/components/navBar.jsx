@@ -63,10 +63,10 @@ const HeaderNav = () =>{
     role == null && (
       <Navbar className='navbar'>
         <Container>
-          <Navbar.Brand href="#home"><img src={Logo1} alt="logo mercat" /></Navbar.Brand>
+          <Navbar.Brand href="#home"><Link to={'/home'}><img src={Logo1} alt="logo mercat"/></Link></Navbar.Brand>
           <Nav className="nav">
             <Nav.Link href="#home">NOSOTROS</Nav.Link>
-            <Nav.Link href="#features">PRODUCTOS</Nav.Link>
+            <Nav.Link href="#features"><Link to={'/products'}>PRODUCTOS</Link></Nav.Link>
             <Nav.Link href="#pricing">CONTACTO</Nav.Link>
             <Button variant="dark"><Link to={'/login'}>INGRESAR</Link></Button>
           </Nav>
