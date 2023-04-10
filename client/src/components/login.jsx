@@ -43,7 +43,7 @@ const Login = () => {
 
       // con esta función le indico que despues del tiempo que le indique me redireccione a una ruta indicada
       setTimeout(()=>{
-        window.location.href = '/' //si pongo solo la barra va directamente al endpoint de partida
+        window.location.href = '/my-profile' //si pongo solo la barra va directamente al endpoint de partida
       }, 3000) //el tiempo que demora en ir al endpoint en milisegundos
 
       } catch (error) {

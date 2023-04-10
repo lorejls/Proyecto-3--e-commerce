@@ -225,7 +225,7 @@ UserRouter.get('/customers', auth,authAdmin, async (req, res) => {
 // GET un solo usuario
 UserRouter.get('/user', auth, authAdmin, async (req, res) => {
     try {
-        let user = await User.findById(req.user.id).select('name surname email')
+        let user = await User.findById(req.user.id).select('name surname email role')
         if (!user) {
             return res.status(400).send({
                 success: false,
@@ -248,7 +248,7 @@ UserRouter.get('/user', auth, authAdmin, async (req, res) => {
 // GET de mi perfil
 UserRouter.get('/user_profile', auth, async (req, res) => {
     try {
-        let user = await User.findById(req.user.id)
+        let user = await User.findById(req.user.id).select('companyName name surname email role contactNumber')
         if (!user) {
             return res.status(400).send({
                 success: false,

@@ -13,7 +13,7 @@ const Profile = () => {
       },
     });
     setUser(response.data.user);
-    // console.log(response)
+    console.log(response)
   };
 
   useEffect(() => {

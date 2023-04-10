@@ -6,9 +6,12 @@ import RegisterSeller from '../registerSeller';
 import RegisterCustomer from '../registerCustomer';
 import Profile from '../perfil';
 import Products from '../products';
+import NewProduct from '../newProduct';
 
 
 const Pages = () => {
+
+      
 
   return (
       <Routes>
@@ -18,6 +21,7 @@ const Pages = () => {
         <Route path='/registercustomer' element= {<RegisterCustomer/>}/>
         <Route path='/my-profile' element= {<Profile/>}/>
         <Route path='/products' element= {<Products/>}/>
+        <Route path='/new-products' element= {<NewProduct/>}/>
       </Routes>
   );
 }
