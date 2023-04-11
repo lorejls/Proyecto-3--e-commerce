@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import {Form, FormGroup, Label, Input, Button} from 'reactstrap'
-import axios from 'axios'
+import axios from 'axios';
+import {Link} from 'react-router-dom'
+import RegisterGeneral from "../components/registerGeneral";
 
 
 
@@ -44,7 +46,7 @@ const Login = () => {
       // con esta función le indico que despues del tiempo que le indique me redireccione a una ruta indicada
       setTimeout(()=>{
         window.location.href = '/my-profile' //si pongo solo la barra va directamente al endpoint de partida
-      }, 3000) //el tiempo que demora en ir al endpoint en milisegundos
+      }, 2000) //el tiempo que demora en ir al endpoint en milisegundos
 
       } catch (error) {
         setErrorM(error.response.data.message)
@@ -81,6 +83,7 @@ const Login = () => {
           />
         </FormGroup>{" "}
         <Button>Ingresar</Button>
+        <h3>¿No esrás registrado? No te preocupes, puedes <Link to={'/register'}>hacerlo aquí</Link></h3>
       </Form>
       <div className="alert alert-primary" role= "alert" style={{display:successM ? "block" : "none"}}>{successM}</div>
       <div className="alert alert-danger" role= "alert" style={{display:errorM ? "block" : "none"}}>{errorM}</div>

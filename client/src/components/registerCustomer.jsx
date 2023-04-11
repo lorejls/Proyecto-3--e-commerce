@@ -39,6 +39,14 @@ const RegisterCustomer = () => {
       );
       console.log(response.data);
       setSuccessM(response.data.message);
+      localStorage.setItem('token', response.data.accessToken)
+      localStorage.setItem('role', response.data.myUser.role)
+      localStorage.setItem('name', response.data.myUser.name)
+      setTimeout(()=>{
+        window.location.href='/my-profile'
+      }, 3000)
+
+
     } catch (error) {
       setErrorM(error.response.data.message);
     }

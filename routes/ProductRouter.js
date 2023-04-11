@@ -11,10 +11,10 @@ const authSeller = require('../middleware/authSeller')
 // POST
 
 ProductRouter.post('/product',auth, authSeller, async (req,res)=>{
-    const {image, title, description, price, stock} = req.body
+    const {image, title, description, price, type, stock} = req.body
     try {
         // condición de validación
-        if(!image ||!title ||!description ||!price ||!stock){
+        if(!image ||!title ||!description ||!price ||!type ||!stock){
             return res.status(400).send({
                 success:false,
                 message: 'No has ingresado todos los campos'
@@ -25,6 +25,7 @@ ProductRouter.post('/product',auth, authSeller, async (req,res)=>{
         title,
         description,
         price,
+        type,
         stock
     })
 

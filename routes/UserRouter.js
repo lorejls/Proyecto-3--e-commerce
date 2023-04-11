@@ -51,6 +51,8 @@ UserRouter.post('/register', async (req, res) => {
         // encripto la sontraseña (antes de crear el usuario)
         let passwordHash = bcrypt.hashSync(password, salt)
 
+        
+
         // declaro un nuevo objeto
         let myUser = new User({
             name,
@@ -62,13 +64,16 @@ UserRouter.post('/register', async (req, res) => {
             contactNumber,
             password: passwordHash
         })
-
+        const accessToken = createToken({
+            id: myUser._id
+        })
         await myUser.save()
 
         return res.status(200).send({
             success: true,
             message: 'Tu usuario ha sido creado con éxito',
-            myUser
+            myUser,
+            accessToken
         })
 
     } catch (error) {
@@ -123,12 +128,16 @@ UserRouter.post('/register_seller', async (req, res) => {
             password: passwordHash
         })
 
+        const accessToken = createToken({
+            id: mySeller._id
+        })
         await mySeller.save()
 
         return res.status(200).send({
             success: true,
             message: 'Tu usuario ha sido creado con éxito',
-            mySeller
+            mySeller,
+            accessToken
         })
 
     } catch (error) {

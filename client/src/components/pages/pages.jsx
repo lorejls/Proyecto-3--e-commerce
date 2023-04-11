@@ -5,14 +5,13 @@ import Home from '../home'
 import RegisterSeller from '../registerSeller';
 import RegisterCustomer from '../registerCustomer';
 import Profile from '../perfil';
-import Products from '../products';
 import NewProduct from '../newProduct';
+import ProductsSeller from '../productsSeller';
+import Products from '../products';
+import RegisterGeneral from '../registerGeneral';
 
 
 const Pages = () => {
-
-      
-
   return (
       <Routes>
         <Route path='/home' element= {<Home/>}/>
@@ -20,8 +19,10 @@ const Pages = () => {
         <Route path='/registerseller' element= {<RegisterSeller/>}/>
         <Route path='/registercustomer' element= {<RegisterCustomer/>}/>
         <Route path='/my-profile' element= {<Profile/>}/>
-        <Route path='/products' element= {<Products/>}/>
+        <Route path='/my-products' element= {<ProductsSeller/>}/>
         <Route path='/new-products' element= {<NewProduct/>}/>
+        <Route path='/productos' element={<Products/>}/>
+        <Route path='/register' element={<RegisterGeneral/>}/>
       </Routes>
   );
 }
