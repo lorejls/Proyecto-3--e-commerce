@@ -7,8 +7,8 @@ const RegisterGeneral = () => {
     <div>
         <h2>Hola!</h2>
         <p>¿Qué deseas hacer dentro de MERCAT?</p>
-        <Button className='btn btn-dark'><Link to={'/registercustomer'} >Quiero comprar</Link></Button>
-        <Button className='btn btn-secudary'><Link to={'/registerseller'} >Quiero vender</Link></Button>
+        <Button className='btn btn-dark'><Link to={'/registercustomer'}>Quiero comprar</Link></Button>
+        <Button className='btn btn-secudary'><Link to={'/registerseller'}>Quiero vender</Link></Button>
     </div>
   )
 }

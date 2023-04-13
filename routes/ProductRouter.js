@@ -11,10 +11,10 @@ const authSeller = require('../middleware/authSeller')
 // POST
 
 ProductRouter.post('/product',auth, authSeller, async (req,res)=>{
-    const {image, title, description, price, type, stock} = req.body
+    const {image, title, description, price, stock, category} = req.body
     try {
         // condición de validación
-        if(!image ||!title ||!description ||!price ||!type ||!stock){
+        if(!image ||!title ||!description ||!price ||!stock ||!category){
             return res.status(400).send({
                 success:false,
                 message: 'No has ingresado todos los campos'
@@ -25,8 +25,8 @@ ProductRouter.post('/product',auth, authSeller, async (req,res)=>{
         title,
         description,
         price,
-        type,
-        stock
+        stock,
+        category
     })
 
     await User.findByIdAndUpdate(req.user.id,{
@@ -115,6 +115,33 @@ ProductRouter.get('/products', async (req, res) => {
             return res.status(400).send({
                 success: false,
                 message: 'No hay productos para mostrar'
+            })
+        }
+        // si encuentra al usuario en la DB
+        return res.status(200).send({
+            success: true,
+            product
+        })
+    } catch (error) {
+        return res.status(500).send({
+            success: false,
+            message: error.message
+        })
+    }
+})
+
+
+
+// GET de un producto
+ProductRouter.get('/product/:id', async (req, res) => {
+    try {
+        const {id} = req.params
+        let product = await Product.findById(id)
+
+        if (!product) {
+            return res.status(400).send({
+                success: false,
+                message: 'No hay producto para mostrar'
             })
         }
         // si encuentra al usuario en la DB

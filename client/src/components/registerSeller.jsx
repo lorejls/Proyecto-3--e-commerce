@@ -37,6 +37,12 @@ const RegisterSeller = () => {
       );
       console.log(response.data);
       setSuccessM(response.data.message);
+      localStorage.setItem('token', response.data.accessToken)
+      localStorage.setItem('role', response.data.mySeller.role)
+      localStorage.setItem('companyName', response.data.mySeller.companyName)
+      setTimeout(()=>{
+        window.location.href='/my-profile'
+      }, 3000)
     } catch (error) {
       setErrorM(error.response.data.message);
     }

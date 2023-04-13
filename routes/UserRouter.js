@@ -257,7 +257,7 @@ UserRouter.get('/user', auth, authAdmin, async (req, res) => {
 // GET de mi perfil
 UserRouter.get('/user_profile', auth, async (req, res) => {
     try {
-        let user = await User.findById(req.user.id).select('companyName name surname email role contactNumber')
+        let user = await User.findById(req.user.id).select('companyName name surname email role contactNumber myProducts').populate('myProducts')
         if (!user) {
             return res.status(400).send({
                 success: false,

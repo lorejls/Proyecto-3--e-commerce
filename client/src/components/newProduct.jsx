@@ -10,7 +10,8 @@ const NewProduct=()=> {
         title: '',
         description: '',
         price:'',
-        stock:''
+        stock:'',
+        category: ''
     });
 
     const token = localStorage.getItem('token')
@@ -36,6 +37,10 @@ const NewProduct=()=> {
         );
         console.log(response.data);
         setSuccessM(response.data.message);
+
+        setTimeout(() => {
+          window.location.href = "/my-products";
+        }, 2000);
       } catch (error) {
         setErrorM(error.response.data.message);
       }
@@ -109,6 +114,33 @@ const NewProduct=()=> {
             onChange={onChangeInput}
           />
         </FormGroup>{" "}
+        <FormGroup check>
+          <Label>Categoría:</Label>
+          <FormGroup check>
+            <Label check>
+              <Input
+                type="radio"
+                name="category"
+                value='verdura'
+                onChange={onChangeInput}
+              />
+              {" "}
+              Verdura
+            </Label>
+          </FormGroup>
+          <FormGroup check>
+            <Label check>
+              <Input
+                type="radio"
+                name="category"
+                value='fruta'
+                onChange={onChangeInput}
+              />
+              {" "}
+              Fruta
+            </Label>
+          </FormGroup>
+        </FormGroup>
         <Button>Aceptar</Button>
         </Form>
         <div

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import {Link} from 'react-router-dom'
+import { Button } from "reactstrap";
 
 const Profile = () => {
   const [user, setUser] = useState({});
@@ -30,6 +32,7 @@ const Profile = () => {
             Hola {user.name} {user.surname}
           </h1>
           <p>Te damos la bienvenida a MERCAT, comienza a comprar</p>
+
         </div>
       )}
       {role == 1 && (
@@ -38,6 +41,8 @@ const Profile = () => {
           <p>
             Te damos la bienvenida a MERCAT, comienza a vender tus productos
           </p>
+          <Button  className='btn btn-dark' ><Link to={'/new-products'}>Crear un producto</Link></Button>
+          <Button className='btn btn-secudary'><Link to={'/my-products'}>Ver mis productos</Link></Button>
         </div>
       )}
       {role == 2 && (
