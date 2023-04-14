@@ -80,16 +80,17 @@ ProductRouter.put('/product', authSeller, authAdmin, async (req, res)=>{
 
 // elimino un producto
 // DELETE
-ProductRouter.delete('/product/:id',authAdmin, authSeller, async (req, res)=>{
+ProductRouter.delete('/product/:id', auth, authSeller, async (req, res)=>{
     try {
-        const {id}= id.params
-        await Product. findByIdAndDelete(id)
+        const {id}= req.params
         if(!id){
             return res.status(400).send({
                 success:false,
                 message: 'No hemos encontrado el producto seleccionado'
             })
         }
+        await Product.findByIdAndDelete(id)
+        
 
         return res.status(200).send({
             success:true,

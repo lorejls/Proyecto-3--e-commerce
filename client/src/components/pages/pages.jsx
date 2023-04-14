@@ -10,7 +10,6 @@ import ProductsSeller from '../productsSeller';
 import Products from '../products';
 import RegisterGeneral from '../registerGeneral';
 import ModifyProduct from '../modifyProduct';
-import DeleteProduct from '../deleteProduct';
 
 
 const Pages = () => {
@@ -26,7 +25,6 @@ const Pages = () => {
         <Route path='/productos' element={<Products/>}/>
         <Route path='/register' element={<RegisterGeneral/>}/>
         <Route path='/modify-product/:productId' element={<ModifyProduct/>}/>
-        <Route path='/delete-product' element={<DeleteProduct/>}/>
       </Routes>
   );
 }
