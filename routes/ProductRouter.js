@@ -54,21 +54,24 @@ ProductRouter.post('/product',auth, authSeller, async (req,res)=>{
 
 // modificar un producto
 // PUT
-ProductRouter.put('/product', authSeller, authAdmin, async (req, res)=>{
+ProductRouter.put('/product/:id',auth, authSeller, async (req, res)=>{
     try {
-        await Product.findById(req.user.id)
-        const {title,
-        description, price} =req.body
+        const {id}= req.params
+        const {image, title, description, price, category, stock} =req.body
 
-        if(!title || !description || !price) {
-            return res.status(400).send({
-                success: false,
-                message: 'No has ingresado todos los campos'
-        })
-    }
+    //     if(!image|| !title || !description || !price|| !category || !stock) {
+    //         return res.status(400).send({
+    //             success: false,
+    //             message: 'No has ingresado todos los campos'
+    //     })
+    // }
+    const productos = await Product.findByIdAndUpdate(id,{image, title, description, price, category, stock})
+
+
     return res.status(200).send({
         success: true,
             message: 'Los datos han sido modificado correctamente',
+            productos
     })
     } catch (error) {
         return res.status(500).send({

@@ -28,8 +28,8 @@ const RegisterSeller = () => {
   };
 
   // función encargada de obtener los datos del estado y enviarlos al back-end
-  const registerSubmit = async (event) => {
-    event.preventDefault();
+  const registerSubmit = async (e) => {
+    e.preventDefault();
     try {
       const response = await axios.post(
         "http://localhost:5000/api/register_seller",
