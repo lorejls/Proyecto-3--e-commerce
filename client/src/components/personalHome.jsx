@@ -3,7 +3,7 @@ import axios from "axios";
 import {Link} from 'react-router-dom'
 import { Button } from "reactstrap";
 
-const Profile = () => {
+const PersonalHome = () => {
   const [user, setUser] = useState({});
   const token = localStorage.getItem("token");
   const role = localStorage.getItem("role");
@@ -57,4 +57,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default PersonalHome;

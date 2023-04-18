@@ -3,6 +3,7 @@ import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import axios from "axios";
 
 
+
 const NewProduct=()=> {
 
     const [product, setProduct] = useState({
@@ -58,9 +59,9 @@ const NewProduct=()=> {
             name="image"
             value={product.image}
             placeholder="Selecciona una imagen"
-            type="text"
+            type="file"
             onChange={onChangeInput}
-          />
+          ></Input>
         </FormGroup>{" "}
         <FormGroup>
           <Label for="title" hidden>

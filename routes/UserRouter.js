@@ -21,6 +21,7 @@ const createToken = (user) => {
 // POST
 UserRouter.post("/register", async (req, res) => {
   const {
+    image,
     name,
     surname,
     email,
@@ -43,6 +44,7 @@ UserRouter.post("/register", async (req, res) => {
     }
     // condiciones de validación
     if (
+      !image ||
       !name ||
       !surname ||
       !email ||
@@ -63,6 +65,7 @@ UserRouter.post("/register", async (req, res) => {
 
     // declaro un nuevo objeto
     let myUser = new User({
+      image,
       name,
       surname,
       email,
@@ -94,7 +97,7 @@ UserRouter.post("/register", async (req, res) => {
 // Crear un usuario
 // POST
 UserRouter.post("/register_seller", async (req, res) => {
-  const { companyName, email, address, postCode, contactNumber, password } =
+  const { image, companyName, email, address, postCode, contactNumber, password } =
     req.body;
   try {
     // compruebo si ya existe un usuario registrado en mi BD con el mismo mail
@@ -109,6 +112,7 @@ UserRouter.post("/register_seller", async (req, res) => {
     }
     // condiciones de validación
     if (
+      !image ||
       !companyName ||
       !address ||
       !email ||
@@ -127,6 +131,7 @@ UserRouter.post("/register_seller", async (req, res) => {
 
     // declaro un nuevo objeto
     let mySeller = new User({
+      image,
       companyName,
       email,
       address,
@@ -263,7 +268,7 @@ UserRouter.get("/user", auth, authAdmin, async (req, res) => {
 UserRouter.get("/user_profile", auth, async (req, res) => {
   try {
     let user = await User.findById(req.user.id)
-      .select("companyName name surname email role contactNumber myProducts")
+      .select("companyName name surname  address shippingAddress postCode email role contactNumber myProducts")
       .populate("myProducts");
     if (!user) {
       return res.status(400).send({
@@ -330,7 +335,7 @@ UserRouter.post("/login", async (req, res) => {
 // PUT
 UserRouter.put("/user", auth, async (req, res) => {
   try {
-    const { address, shippingAddress, postCode, contactNumber } = req.body;
+    const {image, name, surname, companyName, address, shippingAddress, postCode, contactNumber} = req.body;
 
     // if (!address || !shippingAddress || !postCode || !contactNumber) {
     //   return res.status(400).send({
@@ -338,7 +343,7 @@ UserRouter.put("/user", auth, async (req, res) => {
     //     message: "No has ingresado todos los campos",
     //   });
     // }
-     await User.findByIdAndUpdate(req.user.id, {address, shippingAddress, postCode, contactNumber});
+     await User.findByIdAndUpdate(req.user.id, {image, name, surname, companyName, address, shippingAddress, postCode, contactNumber});
      const userProfile = await User.findById(req.user.id);
     return res.status(200).send({
       success: true,
