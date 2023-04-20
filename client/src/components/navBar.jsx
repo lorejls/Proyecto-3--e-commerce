@@ -6,6 +6,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Logo1 from "./img/LOGO-white.png";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import {BsArrowBarRight} from 'react-icons/bs'
 
 const HeaderNav = () => {
   const [role, setRole] = useState(null);
@@ -24,7 +25,7 @@ const HeaderNav = () => {
   const companyName = localStorage.getItem("companyName");
 
   return (
-    <div>
+    <div className="App">
       {role == 0 && (
         <Navbar className="navbar">
           <Container>
@@ -49,22 +50,22 @@ const HeaderNav = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link href="/my-profile">MI PERFIL</Nav.Link>
-                <Nav.Link href="/my-products">MIS PRODUCTOS</Nav.Link>
-                <Nav.Link href="#pricing">CONTACTO</Nav.Link>
-                <NavDropdown
+                <Nav.Link className='text-white' href="/my-profile">MI PERFIL</Nav.Link>
+                <Nav.Link className='text-white' href="/my-products">MIS PRODUCTOS</Nav.Link>
+                <Nav.Link className='text-white' href="#pricing">FAQ</Nav.Link>
+                <Nav.Link className='text-white' href="#pricing">CONTACTO</Nav.Link>
+                {/* <NavDropdown
                   className="submenu"
                   title="IDIOMA"
-                  id="collasible-nav-dropdown"
-                >
+                  id="collasible-nav-dropdown">
                   <NavDropdown.Item href="#action/3.1">
                     CASTELLANO
                   </NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.2">INGLÉS</NavDropdown.Item>
-                </NavDropdown>
+                </NavDropdown> */}
               </Nav>
               <Nav>
-                <Nav.Link href="#deets">SALIR</Nav.Link>
+                <Nav.Link className='text-white' href="/logout">SALIR <BsArrowBarRight/></Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
@@ -87,13 +88,10 @@ const HeaderNav = () => {
             </Navbar.Brand>
             <Nav className="nav">
               <Nav.Link href="#home">NOSOTROS</Nav.Link>
-              <Nav.Link href="#features">
-                <Link to={"/productos"}>PRODUCTOS</Link>
-              </Nav.Link>
+              <Nav.Link href="/productos">PRODUCTOS</Nav.Link>
               <Nav.Link href="#pricing">CONTACTO</Nav.Link>
-              <Button variant="dark">
-                <Link to={"/login"}>INGRESAR</Link>
-              </Button>
+              <Link to={"/login"}><Button variant="dark">INGRESAR</Button>
+              </Link>
             </Nav>
           </Container>
         </Navbar>

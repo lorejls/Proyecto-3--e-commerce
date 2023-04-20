@@ -25,7 +25,7 @@ const PersonalHome = () => {
   console.log(user);
 
   return (
-    <div>
+    <div className="main-container">
       {role == 0 && (
         <div>
           <h1>
@@ -36,13 +36,15 @@ const PersonalHome = () => {
         </div>
       )}
       {role == 1 && (
-        <div>
+        <div className="main-container">
           <h1>Hola {user.companyName}</h1>
-          <p>
-            Te damos la bienvenida a MERCAT, comienza a vender tus productos
+          <p className="text-black big">
+          Comienza a vender con MERCAT, te ayudamos en el proceso.
           </p>
-          <Button  className='btn btn-dark' ><Link to={'/new-products'}>Crear un producto</Link></Button>
-          <Button className='btn btn-secudary'><Link to={'/my-products'}>Ver mis productos</Link></Button>
+          <div className="buttons-large">
+          <Link to={'/new-products'}><Button  className='btn black large' >Crear un producto</Button></Link>
+          <Link to={'/my-products'}><Button className='btn white large'>Ver mis productos</Button></Link>
+          </div>
         </div>
       )}
       {role == 2 && (

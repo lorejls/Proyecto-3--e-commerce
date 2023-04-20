@@ -12,6 +12,7 @@ import ModifyProduct from '../modifyProduct';
 import ModifyProfile from '../modifyProfile';
 import PersonalHome from '../personalHome';
 import MyProfile from '../myProfile';
+import Logout from '../logout';
 
 
 const Pages = () => {
@@ -29,6 +30,7 @@ const Pages = () => {
         <Route path='/modify-product/:productId' element={<ModifyProduct/>}/>
         <Route path='/modify-profile' element={<ModifyProfile/>}/>
         <Route path='/my-profile' element={<MyProfile/>}/>
+        <Route path='/logout' element={<Logout/>}/>
       </Routes>
   );
 }

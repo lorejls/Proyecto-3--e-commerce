@@ -26,7 +26,12 @@ const ModifyProfile = () => {
   };
 
   const getUser = async () => {
-    const response = await axios.get("http://localhost:5000/api/user_profile");
+    const response = await axios.get("http://localhost:5000/api/user_profile", {
+      headers: {
+        Authorization: token,
+      },
+    });
+    console.log(response)
     setUser(response.data.user);
   };
   
