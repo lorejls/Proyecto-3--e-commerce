@@ -44,7 +44,6 @@ UserRouter.post("/register", async (req, res) => {
     }
     // condiciones de validación
     if (
-      !image ||
       !name ||
       !surname ||
       !email ||
@@ -97,7 +96,7 @@ UserRouter.post("/register", async (req, res) => {
 // Crear un usuario
 // POST
 UserRouter.post("/register_seller", async (req, res) => {
-  const { image, companyName, email, address, postCode, contactNumber, password } =
+  const {image, companyName, email, address, postCode, contactNumber, password } =
     req.body;
   try {
     // compruebo si ya existe un usuario registrado en mi BD con el mismo mail
@@ -112,7 +111,6 @@ UserRouter.post("/register_seller", async (req, res) => {
     }
     // condiciones de validación
     if (
-      !image ||
       !companyName ||
       !address ||
       !email ||

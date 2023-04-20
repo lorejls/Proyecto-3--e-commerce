@@ -3,16 +3,19 @@ const mongoose = require('mongoose')
 
 const userSchema = new mongoose.Schema({
     image:{
-        type: String
+        type: String,
+        default:'image'
     },
     companyName:{
         type: String,
     },
     name:{
         type: String,
+        default:'user'
     },
     surname:{
         type: String,
+        default:'user'
     },
     email:{
         type:String,
@@ -33,6 +36,7 @@ const userSchema = new mongoose.Schema({
     },
     shippingAddress:{
         type:String,
+        default:'user'
     },
     payHistory: [{
         type: mongoose.Types.ObjectId,

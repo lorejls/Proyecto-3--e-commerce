@@ -12,11 +12,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #EEEEEE;
 }
 .navbar{
   width: 100%;
   background-color: #5C793F;
 }
+/* home */
+.banner{
+  padding-top: 0.8rem;
+  padding-bottom: 2rem;
+}
+
+
+
+/* home */
 .container{
   width: 90%;
   display: flex;
@@ -28,7 +38,6 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-
 }
 .buttons-large{
   width: 100%;
@@ -51,4 +60,24 @@
 }
 .large{
   width: 100%;
+}
+/* footer inicio */
+.footer{
+  background-color: #242424;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+}
+.logo-footer{
+  margin-bottom: 1rem;
+}
+.container-footer{
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+}
+.text-white{
+  background-color: #779559;
 }

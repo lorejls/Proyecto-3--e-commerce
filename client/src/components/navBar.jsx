@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import NavDropdown from "react-bootstrap/NavDropdown";
+// import NavDropdown from "react-bootstrap/NavDropdown";
 import Logo1 from "./img/LOGO-white.png";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
@@ -27,6 +27,7 @@ const HeaderNav = () => {
   return (
     <div className="App">
       {role == 0 && (
+        
         <Navbar className="navbar">
           <Container>
             <Navbar.Brand href="#home">
@@ -79,22 +80,31 @@ const HeaderNav = () => {
         </Navbar>
       )}
       {role == null && (
-        <Navbar className="navbar">
-          <Container>
-            <Navbar.Brand href="#home">
-              <Link to={"/home"}>
-                <img src={Logo1} alt="logo mercat" />
-              </Link>
-            </Navbar.Brand>
-            <Nav className="nav">
-              <Nav.Link href="#home">NOSOTROS</Nav.Link>
-              <Nav.Link href="/productos">PRODUCTOS</Nav.Link>
-              <Nav.Link href="#pricing">CONTACTO</Nav.Link>
-              <Link to={"/login"}><Button variant="dark">INGRESAR</Button>
-              </Link>
-            </Nav>
-          </Container>
-        </Navbar>
+         <Navbar expand="lg" className="navbar">
+         <Container>
+           <Navbar.Brand href="/">
+             <img src={Logo1} alt="logo mercat" />
+           </Navbar.Brand>
+           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+           <Navbar.Collapse id="responsive-navbar-nav">
+             <Nav className="me-auto">
+               <Nav.Link className='text-white' href="/login">INGRESAR</Nav.Link>
+               <Nav.Link className='text-white' href="/">NOSOTROS</Nav.Link>
+               <Nav.Link className='text-white' href='/productos'>PRODUCTOS</Nav.Link>
+               <Nav.Link className='text-white' href="/">CONTACTO</Nav.Link>
+               {/* <NavDropdown
+                 className="submenu"
+                 title="IDIOMA"
+                 id="collasible-nav-dropdown">
+                 <NavDropdown.Item href="#action/3.1">
+                   CASTELLANO
+                 </NavDropdown.Item>
+                 <NavDropdown.Item href="#action/3.2">INGLÉS</NavDropdown.Item>
+               </NavDropdown> */}
+             </Nav>
+           </Navbar.Collapse>
+         </Container>
+       </Navbar>
       )}
     </div>
   );
