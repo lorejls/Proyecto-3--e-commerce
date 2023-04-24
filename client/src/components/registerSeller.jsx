@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { Form, FormGroup, Label, Input} from "reactstrap";
 import axios from "axios";
+import {Link} from 'react-router-dom'
 
 // Instalar dependencia axios para hacer la llamada al back-end (npm i axios)
 
@@ -68,24 +69,21 @@ const RegisterSeller = () => {
           />
         </FormGroup>{" "}</div>
         <div className="input">
-        <FormGroup>
-          <Label for="email" className="label">
-            Correo
+        <FormGroup className="input">
+          <Label for="email" className="label">Email*
           </Label>
           <Input
             id="email"
             name="email"
             value={user.email}
-            placeholder="Escribe tu correo"
+            placeholder="Escribe tu email"
             type="email"
             onChange={onChangeInput}
           />
-        </FormGroup>{" "}
-        </div>
-        
-        <FormGroup>
-          <Label for="password" className="label">
-            Contraseña
+        </FormGroup>{" "}</div>
+        <div className="input">
+        <FormGroup className="input">
+          <Label for="password" className="label">Contraseña*
           </Label>
           <Input
             id="password"
@@ -95,23 +93,23 @@ const RegisterSeller = () => {
             type="password"
             onChange={onChangeInput}
           />
-        </FormGroup>{" "}
-        <FormGroup>
-          <Label for="address" className="label">
-            Dirección
+        </FormGroup>{" "}</div>
+        <div className="input">
+        <FormGroup className="input">
+          <Label for="address" className="label">Drección*
           </Label>
           <Input
             id="address"
             name="address"
             value={user.address}
-            placeholder="Escribe tu dirección"
+            placeholder="Escribe tu contraseña"
             type="text"
             onChange={onChangeInput}
           />
-        </FormGroup>{" "}
-        <FormGroup>
-          <Label for="postCode" className="label">
-            Código postal
+        </FormGroup>{" "}</div>
+        <div className="input">
+        <FormGroup className="input">
+          <Label for="postCode" className="label">Código postal*
           </Label>
           <Input
             id="postCode"
@@ -121,32 +119,33 @@ const RegisterSeller = () => {
             type="number"
             onChange={onChangeInput}
           />
-        </FormGroup>{" "}
-        <FormGroup>
-          <Label for="contactNumber" className="label">
-            Número de contacto
+        </FormGroup>{" "}</div>
+        <div className="input">
+        <FormGroup className="input">
+          <Label for="contactNumber" className="label">Número de contacto*
           </Label>
           <Input
             id="contactNumber"
             name="contactNumber"
             value={user.contactNumber}
-            placeholder="Escribe tu numero de contacto"
+            placeholder="Escribe tu número de contacto"
             type="number"
             onChange={onChangeInput}
           />
-        </FormGroup>{" "}
-        <Button>Enviar</Button>
-        <Button>Cancelar</Button>
+        </FormGroup>{" "}</div>
+        <div className="botones">
+        <button className='button black'>Aceptar</button>
+        <Link to={'/register'}><button className='button white'>Cancelar</button></Link></div>
       </Form>
-      <div
+      {/* <div
         className="alert alert-primary"
         role="alert"
         style={{ display: successM ? "block" : "none" }}
       >
         {successM}
-      </div>
+      </div> */}
       <div
-        className="alert alert-danger"
+        className="alert dark"
         role="alert"
         style={{ display: errorM ? "block" : "none" }}
       >

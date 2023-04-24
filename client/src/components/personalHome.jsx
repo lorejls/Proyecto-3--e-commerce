@@ -27,25 +27,28 @@ const PersonalHome = () => {
   return (
     <div className="main-container">
       {role == 0 && (
-        <div>
-          <h1>
-            Hola {user.name} {user.surname}
-          </h1>
-          <p>Te damos la bienvenida a MERCAT, comienza a comprar</p>
-
+        <div className="main-container">
+        <h2 className='saludo-home'>Hola {user.name}!</h2>
+        <div className='texto-centrado'>
+        <p className='texto-secundario'>Comienza a comprar tus productos</p>
         </div>
+        <div className="botones">
+        <Link to={'/registercustomer'}><button className='button violet'>Quiero comprar</button></Link>
+        <Link to={'/registerseller'}><button className='button black'>Quiero vender</button></Link>
+        </div>
+    </div>
       )}
       {role == 1 && (
         <div className="main-container">
-          <h1>Hola {user.companyName}</h1>
-          <p className="text-black big">
-          Comienza a vender con MERCAT, te ayudamos en el proceso.
-          </p>
-          <div className="buttons-large">
-          <Link className='button black'  to={'/new-products'}>Crear un producto</Link>
-          <Link className='button white' to={'/my-products'}>Ver mis productos</Link>
-          </div>
+        <h2 className='saludo-home'>Hola {user.companyName}!</h2>
+        <div className='texto-centrado'>
+        <p className='texto-secundario'>Vende tus productos en MERCAT, te ayudamos en el proceso</p>
         </div>
+        <div className="botones">
+        <Link to={'/new-products'}><button className='button black'>Crear un producto</button></Link>
+        <Link to={'/my-products'}><button className='button white'>Ver mis productos</button></Link>
+        </div>
+    </div>
       )}
       {role == 2 && (
         <div>

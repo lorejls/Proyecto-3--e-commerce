@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { Form, FormGroup, Label, Input } from "reactstrap";
 import axios from "axios";
+import {Link} from 'react-router-dom'
 
 // Instalar dependencia axios para hacer la llamada al back-end (npm i axios)
 
@@ -57,122 +58,124 @@ const RegisterCustomer = () => {
       <h2 className='saludo-home'>REGISTRO DE COMPRADOR</h2>
         <div className='texto-centrado'>
         <p className='texto-secundario'>Por favor ingresa tus datos</p></div>
-      <Form onSubmit={registerSubmit}>
-        <FormGroup>
-          <Label for="name" hidden>
-            Nombre
+        <Form className="input" onSubmit={registerSubmit}>
+      <div className="input">
+        <FormGroup className="input">
+          <Label for="name" className="label">Nombre*
           </Label>
           <Input
-            id="nameCustomer"
+            id="name"
             name="name"
             value={user.name}
             placeholder="Escribe tu nombre"
             type="text"
             onChange={onChangeInput}
           />
-        </FormGroup>{" "}
-        <FormGroup>
-          <Label for="surname" hidden>
-            Apellido
+        </FormGroup>{" "}</div>
+        <div className="input">
+        <FormGroup className="input">
+          <Label for="surname" className="label">Apellido*
           </Label>
           <Input
-            id="surnameCustomer"
+            id="surname"
             name="surname"
             value={user.surname}
             placeholder="Escribe tu apellido"
             type="text"
             onChange={onChangeInput}
           />
-        </FormGroup>{" "}
-        <FormGroup>
-          <Label for="email" hidden>
-            Correo
+        </FormGroup>{" "}</div>
+        <div className="input">
+        <FormGroup className="input">
+          <Label for="email" className="label">Email*
           </Label>
           <Input
-            id="emailCustomer"
+            id="email"
             name="email"
             value={user.email}
-            placeholder="Escribe tu correo"
+            placeholder="Escribe tu email"
             type="email"
             onChange={onChangeInput}
           />
-        </FormGroup>{" "}
-        <FormGroup>
-          <Label for="password" hidden>
-            Contraseña
+        </FormGroup>{" "}</div>
+        <div className="input">
+        <FormGroup className="input">
+          <Label for="password" className="label">Contraseña*
           </Label>
           <Input
-            id="passwordCustomer"
+            id="password"
             name="password"
             value={user.password}
             placeholder="Escribe tu contraseña"
             type="password"
             onChange={onChangeInput}
           />
-        </FormGroup>{" "}
-        <FormGroup>
-          <Label for="address" hidden>
-            Dirección
+        </FormGroup>{" "}</div>
+        <div className="input">
+        <FormGroup className="input">
+          <Label for="address" className="label">Drección*
           </Label>
           <Input
-            id="addressCustomer"
+            id="address"
             name="address"
             value={user.address}
-            placeholder="Escribe tu dirección"
+            placeholder="Escribe tu contraseña"
             type="text"
             onChange={onChangeInput}
           />
-        </FormGroup>{" "}
-        <FormGroup>
-          <Label for="shippingAddress" hidden>
-            Dirección de envíos
+        </FormGroup>{" "}</div>
+        <div className="input">
+        <FormGroup className="input">
+          <Label for="shippingAddress" className="label">Drección de envíos*
           </Label>
           <Input
             id="shippingAddress"
             name="shippingAddress"
             value={user.shippingAddress}
-            placeholder="Escribe tu dirección de envíos"
+            placeholder="Escribe tu contraseña"
             type="text"
             onChange={onChangeInput}
           />
-        </FormGroup>{" "}
-        <FormGroup>
-          <Label for="postCodeCustomer" hidden>
-            Dirección
+        </FormGroup>{" "}</div>
+        <div className="input">
+        <FormGroup className="input">
+          <Label for="postCode" className="label">Código postal*
           </Label>
           <Input
-            id="postCodeCustomer"
+            id="postCode"
             name="postCode"
             value={user.postCode}
             placeholder="Escribe tu código postal"
             type="number"
             onChange={onChangeInput}
           />
-        </FormGroup>{" "}
-        <FormGroup>
-          <Label for="contactNumber" hidden>
-            Número de contacto
+        </FormGroup>{" "}</div>
+        <div className="input">
+        <FormGroup className="input">
+          <Label for="contactNumber" className="label">Número de contacto*
           </Label>
           <Input
-            id="contactNumCustomer"
+            id="contactNumber"
             name="contactNumber"
             value={user.contactNumber}
-            placeholder="Escribe tu numero de contacto"
+            placeholder="Escribe tu número de contacto"
             type="number"
             onChange={onChangeInput}
           />
-        </FormGroup>{" "}
-        <Button>Enviar</Button>
+        </FormGroup>{" "}</div>
+        <div className="botones">
+        <button className='button violet'>Aceptar</button>
+        <Link to={'/register'}><button className='button white'>Cancelar</button></Link></div>
       </Form>
-      <div
+      {/* <div
         className="alert alert-primary"
         role="alert"
         style={{ display: successM ? "block" : "none" }}
       >
         {successM}
-      </div>
+      </div> */}
       <div
-        className="alert alert-danger"
+        className="alert dark"
         role="alert"
         style={{ display: errorM ? "block" : "none" }}
       >

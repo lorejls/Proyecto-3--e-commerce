@@ -91,7 +91,7 @@ const Login = () => {
         <h3 className="texto-secundario">¿No estás registrado? No te preocupes, puedes <Link to={'/register'}>hacerlo aquí</Link></h3>
       </Form>
       {/* <div className="alert dark" role= "alert" style={{display:successM ? "block" : "none"}}>{successM}</div> */}
-      <div className="alert secundary" role= "alert" style={{display:errorM ? "block" : "none"}}>{errorM}</div>
+      <div className="alert dark" role= "alert" style={{display:errorM ? "block" : "none"}}>{errorM}</div>
     </div>
   );
 };

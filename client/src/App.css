@@ -88,6 +88,7 @@
 .black{
   background-color: black;
   color: white;
+  margin-top: 16px;
 
 }
 .white{
@@ -104,7 +105,6 @@
   background-color: #756783;
   color: black;
   font-weight: 600;
-  margin-bottom: 16px;
 }
 .large{
   width: 100%;
@@ -132,10 +132,12 @@
 }
 .label{
   text-align: left;
+  font-size: 14px;
 }
 .input{
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  margin-bottom: 0.5rem;
 }
