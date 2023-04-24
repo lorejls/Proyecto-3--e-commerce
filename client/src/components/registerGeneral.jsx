@@ -4,11 +4,16 @@ import {Link} from 'react-router-dom'
 
 const RegisterGeneral = () => {
   return (
-    <div>
-        <h2>Hola!</h2>
-        <p>¿Qué deseas hacer dentro de MERCAT?</p>
-        <Button className='btn btn-dark'><Link to={'/registercustomer'}>Quiero comprar</Link></Button>
-        <Button className='btn btn-secudary'><Link to={'/registerseller'}>Quiero vender</Link></Button>
+    <div className="main-container">
+        <h2 className='saludo-home'>Hola!</h2>
+        <div className='texto-centrado'>
+        <p className='texto-secundario'>Comienza aquí tu proceso de registro</p>
+        <p className='texto-secundario'>¿Qué deseas hacer dentro de MERCAT?</p>
+        </div>
+        <div className="botones">
+        <Link to={'/registercustomer'}><button className='button violet'>Quiero comprar</button></Link>
+        <Link to={'/registerseller'}><button className='button black'>Quiero vender</button></Link>
+        </div>
     </div>
   )
 }

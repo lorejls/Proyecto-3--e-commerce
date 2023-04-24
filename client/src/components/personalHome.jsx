@@ -42,8 +42,8 @@ const PersonalHome = () => {
           Comienza a vender con MERCAT, te ayudamos en el proceso.
           </p>
           <div className="buttons-large">
-          <Link to={'/new-products'}><Button  className='btn black large' >Crear un producto</Button></Link>
-          <Link to={'/my-products'}><Button className='btn white large'>Ver mis productos</Button></Link>
+          <Link className='button black'  to={'/new-products'}>Crear un producto</Link>
+          <Link className='button white' to={'/my-products'}>Ver mis productos</Link>
           </div>
         </div>
       )}

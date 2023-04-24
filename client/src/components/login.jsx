@@ -45,7 +45,7 @@ const Login = () => {
 
       // con esta función le indico que despues del tiempo que le indique me redireccione a una ruta indicada
       setTimeout(()=>{
-        window.location.href = '/my-profile' //si pongo solo la barra va directamente al endpoint de partida
+        window.location.href = '/my-home' //si pongo solo la barra va directamente al endpoint de partida
       }, 2000) //el tiempo que demora en ir al endpoint en milisegundos
 
       } catch (error) {
@@ -54,7 +54,8 @@ const Login = () => {
     }
 
   return (
-    <div>
+    <div className="main-container">
+      <h2 className="saludo-home">Hola!</h2>
       <Form onSubmit={loginSubmit}>
         <FormGroup>
           <Label for="exampleEmail" hidden>
@@ -82,11 +83,15 @@ const Login = () => {
             onChange={onChangeInput}
           />
         </FormGroup>{" "}
-        <Button>Ingresar</Button>
-        <h3>¿No esrás registrado? No te preocupes, puedes <Link to={'/register'}>hacerlo aquí</Link></h3>
+        <div className="botones">
+        <button className='button black'>Ingresar</button>
+        <button className='button white'>Ingresar con Google</button>
+        </div>
+        <h3 className="texto-secundario">¿Olvidaste tu contraseña?</h3>
+        <h3 className="texto-secundario">¿No estás registrado? No te preocupes, puedes <Link to={'/register'}>hacerlo aquí</Link></h3>
       </Form>
-      <div className="alert alert-primary" role= "alert" style={{display:successM ? "block" : "none"}}>{successM}</div>
-      <div className="alert alert-danger" role= "alert" style={{display:errorM ? "block" : "none"}}>{errorM}</div>
+      {/* <div className="alert dark" role= "alert" style={{display:successM ? "block" : "none"}}>{successM}</div> */}
+      <div className="alert secundary" role= "alert" style={{display:errorM ? "block" : "none"}}>{errorM}</div>
     </div>
   );
 };

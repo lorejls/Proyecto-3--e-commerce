@@ -9,7 +9,6 @@ const authSeller = require('../middleware/authSeller')
 
 // Creo un producto 
 // POST
-
 ProductRouter.post('/product',auth, authSeller, async (req,res)=>{
     const {image, title, description, price, stock, category} = req.body
     try {
@@ -166,7 +165,7 @@ ProductRouter.get('/product/:id', async (req, res) => {
 ProductRouter.get('/product_seller/:id', async (req, res) =>{
     try {
         const {id} = req.params
-        let product_seller = await User.findById(req.seller.id).select('myProducts').populate('myProducts')
+        let product_seller = await User.findById(id).select('myProducts').populate('myProducts')
 
         if (!product_seller) {
             return res.status(400).send({

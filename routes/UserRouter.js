@@ -188,7 +188,7 @@ UserRouter.get("/users", auth, authAdmin, async (req, res) => {
 });
 
 // GET de todos los vendedores
-UserRouter.get("/sellers", auth, authAdmin, async (req, res) => {
+UserRouter.get("/sellers", async (req, res) => {
   try {
     let users = await User.find({});
 
@@ -288,7 +288,7 @@ UserRouter.get("/user_profile", auth, async (req, res) => {
 });
 
 // LOGIN de Usuario/ Vendedor
-
+// POST
 UserRouter.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;

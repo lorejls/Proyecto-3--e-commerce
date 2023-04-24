@@ -53,7 +53,10 @@ const RegisterCustomer = () => {
   };
 
   return (
-    <div>
+    <div className="main-container">
+      <h2 className='saludo-home'>REGISTRO DE COMPRADOR</h2>
+        <div className='texto-centrado'>
+        <p className='texto-secundario'>Por favor ingresa tus datos</p></div>
       <Form onSubmit={registerSubmit}>
         <FormGroup>
           <Label for="name" hidden>

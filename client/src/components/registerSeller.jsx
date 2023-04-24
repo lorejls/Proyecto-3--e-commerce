@@ -49,11 +49,14 @@ const RegisterSeller = () => {
   };
 
   return (
-    <div>
-      <Form onSubmit={registerSubmit}>
-        <FormGroup>
-          <Label for="companyName" hidden>
-            Nombre de la empresa
+    <div className="main-container">
+      <h2 className='saludo-home'>REGISTRO DE EMPRESA</h2>
+        <div className='texto-centrado'>
+        <p className='texto-secundario'>Por favor ingresa los datos de tu empresa</p></div>
+      <Form className="input" onSubmit={registerSubmit}>
+      <div className="input">
+        <FormGroup className="input">
+          <Label for="companyName" className="label">Nombre de la empresa*
           </Label>
           <Input
             id="companyName"
@@ -63,9 +66,10 @@ const RegisterSeller = () => {
             type="text"
             onChange={onChangeInput}
           />
-        </FormGroup>{" "}
+        </FormGroup>{" "}</div>
+        <div className="input">
         <FormGroup>
-          <Label for="email" hidden>
+          <Label for="email" className="label">
             Correo
           </Label>
           <Input
@@ -77,8 +81,10 @@ const RegisterSeller = () => {
             onChange={onChangeInput}
           />
         </FormGroup>{" "}
+        </div>
+        
         <FormGroup>
-          <Label for="password" hidden>
+          <Label for="password" className="label">
             Contraseña
           </Label>
           <Input
@@ -91,7 +97,7 @@ const RegisterSeller = () => {
           />
         </FormGroup>{" "}
         <FormGroup>
-          <Label for="address" hidden>
+          <Label for="address" className="label">
             Dirección
           </Label>
           <Input
@@ -104,7 +110,7 @@ const RegisterSeller = () => {
           />
         </FormGroup>{" "}
         <FormGroup>
-          <Label for="postCode" hidden>
+          <Label for="postCode" className="label">
             Código postal
           </Label>
           <Input
@@ -117,7 +123,7 @@ const RegisterSeller = () => {
           />
         </FormGroup>{" "}
         <FormGroup>
-          <Label for="contactNumber" hidden>
+          <Label for="contactNumber" className="label">
             Número de contacto
           </Label>
           <Input
@@ -130,6 +136,7 @@ const RegisterSeller = () => {
           />
         </FormGroup>{" "}
         <Button>Enviar</Button>
+        <Button>Cancelar</Button>
       </Form>
       <div
         className="alert alert-primary"

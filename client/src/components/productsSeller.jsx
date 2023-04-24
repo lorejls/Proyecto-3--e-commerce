@@ -46,7 +46,7 @@ const MyProducts = () => {
   }     
   
   return (
-    <div>
+    <div className="main-container">
       <h2>Mis productos</h2>
       <Button className="btn btn-dark">
         <Link to={"/new-products"}>Nuevo producto</Link>

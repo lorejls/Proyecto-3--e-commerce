@@ -15,7 +15,7 @@ const Logout = () => {
     )
 
   return (
-    <div>Esperamos verte pronto!</div>
+    <div className="main-container">Esperamos verte pronto!</div>
   )
 }
 

@@ -24,7 +24,7 @@ const MyProfile = () => {
   }, []);
 
   return (
-    <div>
+    <div className="main-container">
       <h2>Mi perfil</h2>
       {role == 0 && (
         <div>

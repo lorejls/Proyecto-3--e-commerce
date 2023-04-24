@@ -48,7 +48,7 @@ const NewProduct=()=> {
     };
 
   return (
-    <div>
+    <div className="main-container">
     <Form onSubmit={productSubmit}>
         <FormGroup>
           <Label for="image" hidden>

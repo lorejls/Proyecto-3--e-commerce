@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+  font-size: 16px;
 }
 
 .App{
@@ -18,13 +19,44 @@
   width: 100%;
   background-color: #5C793F;
 }
+/* configuración general */
+.saludo-home{
+  font-weight: 600;
+  margin: 2rem 2rem;
+}
+.botones{
+  width: 100%;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.texto-secundario{
+  font-size: 16px;
+}
+.texto-centrado{
+  width: 70%;
+}
+/* configuración general */
 /* home */
 .banner{
   padding-top: 0.8rem;
   padding-bottom: 2rem;
 }
+.titulo-home{
+  width: 100%;
+  background-color: #1E1E1E;
+  color: white;
+  text-decoration: none;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
 
-
+.link{
+  text-decoration: none;
+  color: black;
+  margin-bottom: 2rem;
+}
 
 /* home */
 .container{
@@ -45,18 +77,34 @@
   flex-direction: column;
   align-items: center;
 }
-.black{
+.button{
   width: 100%;
+  padding: 0.5rem 0rem;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 300;
+}
+.black{
   background-color: black;
   color: white;
+
 }
 .white{
-  width: 100%;
-  background-color:  white;
   color: black;
-  font-weight: 600;
+  font-weight: 500;
   border: solid black 0.1rem;
   margin-top: 1rem;
+}
+.green{
+  background-color: #2C4F09;
+  color: white;
+}
+.violet{
+  background-color: #756783;
+  color: black;
+  font-weight: 600;
+  margin-bottom: 16px;
 }
 .large{
   width: 100%;
@@ -70,6 +118,7 @@
   flex-direction: column;
   justify-content: center;
   color: white;
+  margin-top: 4rem;
 }
 .logo-footer{
   margin-bottom: 1rem;
@@ -80,4 +129,13 @@
 }
 .text-white{
   background-color: #779559;
+}
+.label{
+  text-align: left;
+}
+.input{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }

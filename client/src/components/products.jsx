@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from "react";
 import axios from 'axios';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import FOTO from '../components/img/fyv.jpg'
 
 
 const Products =() =>{
@@ -35,19 +38,30 @@ const Products =() =>{
 //   );
 // };
   return (
-    <div>
+    <div className="main-container">
         <input type="text" value={filtro} onChange={e=> setFiltro(e.target.value)}/>
 
       <h2>Productos destacados</h2>
       {
         filtredProducts.map((productos)=>{
           return(
-            <div>
+            <div className="main-container">
+              
+
               <Link key={productos._id}>
-              <h1>{productos.title}</h1>
-              <h3>{productos.description}</h3>
-              <h3>{productos.price}</h3>
-              </Link>
+
+    <Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" src={FOTO} />
+      <Card.Body>
+        <Card.Title>{productos.title}</Card.Title>
+        <Card.Text>
+        {productos.description}
+        </Card.Text>
+        <h3 className="link">€/kg: {productos.price}</h3>
+        <button className="button black">Agregar al carrito</button>
+      </Card.Body>
+    </Card>
+    </Link>
             </div>
             )
         })

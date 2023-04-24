@@ -64,7 +64,7 @@ const ModifyProfile = () => {
   }, []);
 
   return (
-    <div>
+    <div className="main-container">
         {role == 0 && (
       <Form onSubmit={modifyProfSubmit}>
         <FormGroup>

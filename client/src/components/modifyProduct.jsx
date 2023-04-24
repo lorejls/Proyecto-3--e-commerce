@@ -56,7 +56,7 @@ console.log(productId)
   }, []);
 
   return (
-    <div>
+    <div className="main-container">
      <Form onSubmit={modifySubmit}>
         <FormGroup>
           <Label for="image" hidden>
