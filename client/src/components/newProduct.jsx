@@ -152,7 +152,7 @@ const NewProduct=()=> {
         {/* <Button>Aceptar</Button> */}
         </Form>
         <div
-        className="alert alert-primary"
+        className="alert dark"
         role="alert"
         style={{ display: successM ? "block" : "none" }}
       >

@@ -3,7 +3,8 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Logo1 from "./img/LOGO-white.png";
-import {BsArrowBarRight} from 'react-icons/bs'
+import { BsArrowBarRight } from "react-icons/bs";
+import { FiShoppingCart } from "react-icons/fi";
 
 const HeaderNav = () => {
   const [role, setRole] = useState(null);
@@ -24,18 +25,36 @@ const HeaderNav = () => {
   return (
     <div className="App">
       {role == 0 && (
-        
-        <Navbar className="navbar">
+        <Navbar expand="lg" className="navbar">
           <Container>
-            <Navbar.Brand href="#home">
+            <Navbar.Brand href="my-home">
               <img src={Logo1} alt="logo mercat" />
             </Navbar.Brand>
-            <Nav className="nav">
-              <Nav.Link href="#home">NOSOTROS</Nav.Link>
-              <Nav.Link href="#features">PRODUCTOS</Nav.Link>
-              <Nav.Link href="#pricing">CONTACTO</Nav.Link>
-              <Navbar.Brand href="#">Hola,usuario {name}</Navbar.Brand>
-            </Nav>
+            <Nav.Link href="/cart">
+            <FiShoppingCart className="icon-white" />
+            </Nav.Link>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav className="me-auto">
+                <Nav.Link className="text-white" href="/my-profile">
+                  MI PERFIL
+                </Nav.Link>
+                <Nav.Link className="text-white" href="/productos">
+                  PRODUCTOS
+                </Nav.Link>
+                <Nav.Link className="text-white" href="#pricing">
+                  FAQ
+                </Nav.Link>
+                <Nav.Link className="text-white" href="#pricing">
+                  CONTACTO
+                </Nav.Link>
+              </Nav>
+              <Nav>
+                <Nav.Link className="text-white" href="/logout">
+                  SALIR <BsArrowBarRight />
+                </Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
           </Container>
         </Navbar>
       )}
@@ -48,13 +67,23 @@ const HeaderNav = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link className='text-white' href="/my-profile">MI PERFIL</Nav.Link>
-                <Nav.Link className='text-white' href="/my-products">MIS PRODUCTOS</Nav.Link>
-                <Nav.Link className='text-white' href="#pricing">FAQ</Nav.Link>
-                <Nav.Link className='text-white' href="#pricing">CONTACTO</Nav.Link>
+                <Nav.Link className="text-white" href="/my-profile">
+                  MI PERFIL
+                </Nav.Link>
+                <Nav.Link className="text-white" href="/my-products">
+                  MIS PRODUCTOS
+                </Nav.Link>
+                <Nav.Link className="text-white" href="#pricing">
+                  FAQ
+                </Nav.Link>
+                <Nav.Link className="text-white" href="#pricing">
+                  CONTACTO
+                </Nav.Link>
               </Nav>
               <Nav>
-                <Nav.Link className='text-white' href="/logout">SALIR <BsArrowBarRight/></Nav.Link>
+                <Nav.Link className="text-white" href="/logout">
+                  SALIR <BsArrowBarRight />
+                </Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
@@ -68,19 +97,27 @@ const HeaderNav = () => {
         </Navbar>
       )}
       {role == null && (
-         <Navbar expand="lg" className="navbar">
-         <Container>
-           <Navbar.Brand href="/">
-             <img src={Logo1} alt="logo mercat" />
-           </Navbar.Brand>
-           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-           <Navbar.Collapse id="responsive-navbar-nav">
-             <Nav className="me-auto">
-               <Nav.Link className='text-white' href="/login">INGRESAR</Nav.Link>
-               <Nav.Link className='text-white' href="/">NOSOTROS</Nav.Link>
-               <Nav.Link className='text-white' href='/productos'>PRODUCTOS</Nav.Link>
-               <Nav.Link className='text-white' href="/">CONTACTO</Nav.Link>
-               {/* <NavDropdown
+        <Navbar expand="lg" className="navbar">
+          <Container>
+            <Navbar.Brand href="/">
+              <img src={Logo1} alt="logo mercat" />
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav className="me-auto">
+                <Nav.Link className="text-white" href="/login">
+                  INGRESAR
+                </Nav.Link>
+                <Nav.Link className="text-white" href="/">
+                  NOSOTROS
+                </Nav.Link>
+                <Nav.Link className="text-white" href="/productos">
+                  PRODUCTOS
+                </Nav.Link>
+                <Nav.Link className="text-white" href="/">
+                  CONTACTO
+                </Nav.Link>
+                {/* <NavDropdown
                  className="submenu"
                  title="IDIOMA"
                  id="collasible-nav-dropdown">
@@ -89,10 +126,10 @@ const HeaderNav = () => {
                  </NavDropdown.Item>
                  <NavDropdown.Item href="#action/3.2">INGLÉS</NavDropdown.Item>
                </NavDropdown> */}
-             </Nav>
-           </Navbar.Collapse>
-         </Container>
-       </Navbar>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
       )}
     </div>
   );

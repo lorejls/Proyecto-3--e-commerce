@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {Link} from 'react-router-dom';
 import { Button } from "reactstrap";
+import Products from "./products";
 
 const PersonalHome = () => {
   const [user, setUser] = useState({});
@@ -28,15 +29,8 @@ const PersonalHome = () => {
     <div className="main-container">
       {role == 0 && (
         <div className="main-container">
-        <h2 className='saludo-home'>Hola {user.name}!</h2>
-        <div className='texto-centrado'>
-        <p className='texto-secundario'>Comienza a comprar tus productos</p>
+        <Products/>
         </div>
-        <div className="botones">
-        <Link to={'/registercustomer'}><button className='button violet'>Quiero comprar</button></Link>
-        <Link to={'/registerseller'}><button className='button black'>Quiero vender</button></Link>
-        </div>
-    </div>
       )}
       {role == 1 && (
         <div className="main-container">

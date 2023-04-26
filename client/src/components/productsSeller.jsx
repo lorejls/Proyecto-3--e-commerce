@@ -4,11 +4,13 @@ import { Link, useParams } from "react-router-dom";
 import FOTO from "../components/img/fyv.jpg";
 import Card from "react-bootstrap/Card";
 import {FaPlus} from "react-icons/fa";
-import {BsTrashFill} from "react-icons/bs"
+import {BsTrashFill} from "react-icons/bs";
+import {Input} from "reactstrap";
 
 const MyProducts = () => {
   const [myProducts, setMyProducts] = useState([]);
   const token = localStorage.getItem("token");
+  const [filtro, setFiltro] = useState("");
 
   const getMyProducts = async () => {
     const response = await axios.get("http://localhost:5000/api/user_profile", {
@@ -51,6 +53,12 @@ const MyProducts = () => {
     }
   };
 
+  const filtredProducts = myProducts.filter((producto) => {
+    if (producto.title.toLowerCase().includes(filtro.toLowerCase())) {
+      return true;
+    }
+  });
+
   return (
     <div className="main-container">
       <h2 className="saludo-home">Mis productos</h2>
@@ -58,7 +66,14 @@ const MyProducts = () => {
       <button className="button white">
         <Link  to={"/new-products"} className="link" > <FaPlus className="color"/>     Nuevo producto</Link>
       </button></div>
-      {myProducts.map((misProductos) => {
+      <div className="search nueva">
+      <Input
+            type="text"
+            value={filtro}
+            onChange={(e) => setFiltro(e.target.value)}
+            Placeholder='Buscar producto...'
+          /></div>
+      {filtredProducts.map((misProductos) => {
         return (
           <div>
             {console.log(misProductos._id)}

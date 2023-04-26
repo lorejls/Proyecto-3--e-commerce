@@ -5,6 +5,8 @@ import Card from "react-bootstrap/Card";
 import FOTO from "../components/img/fyv.jpg";
 import { wrapper } from 'axios-cookiejar-support';
 import Cookie from 'tough-cookie';
+import {Input} from "reactstrap";
+
 
 const cookieJar = new Cookie.CookieJar();
 
@@ -69,11 +71,14 @@ const Products = () => {
   // };
   return (
     <div className="main-container">
-      <input
-        type="text"
-        value={filtro}
-        onChange={(e) => setFiltro(e.target.value)}
-      />
+      <div className="search">
+      <Input
+            type="text"
+            value={filtro}
+            onChange={(e) => setFiltro(e.target.value)}
+            Placeholder='Buscar...'
+            
+          /></div>
       {filtredProducts.map((productos) => {
         return (
           <div key={productos._id}>
