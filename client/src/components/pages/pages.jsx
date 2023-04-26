@@ -13,6 +13,7 @@ import ModifyProfile from '../modifyProfile';
 import PersonalHome from '../personalHome';
 import MyProfile from '../myProfile';
 import Logout from '../logout';
+import ShoppingCart from '../shoppingCart';
 
 
 const Pages = () => {
@@ -31,6 +32,7 @@ const Pages = () => {
         <Route path='/modify-profile' element={<ModifyProfile/>}/>
         <Route path='/my-profile' element={<MyProfile/>}/>
         <Route path='/logout' element={<Logout/>}/>
+        <Route path='/cart' element={<ShoppingCart/>}/>
       </Routes>
   );
 }

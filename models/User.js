@@ -40,7 +40,7 @@ const userSchema = new mongoose.Schema({
     },
     payHistory: [{
         type: mongoose.Types.ObjectId,
-        ref: 'Pay'
+        ref: 'Order'
     }],
     myProducts: [{
         type: mongoose.Types.ObjectId,

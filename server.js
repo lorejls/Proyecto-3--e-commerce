@@ -3,24 +3,31 @@
 const express= require('express') //importamos express
 const app= express() //creamos un servidor que se llama app y utiliza las funciones/metodos de la dependencia express
 const cors = require('cors')
+const cookieParser = require('cookie-parser')
+const bodyParser = require('body-parser')
 
 // Install DOTENV and MONGOOSE dependencies
 const mongoose = require('mongoose')
 require('dotenv').config()
 
-
-app.use(express.json({extended:true})) //para poder escribir los datos en formato JSON y utilizarlos en el postman
-app.use(express.urlencoded({extended:true})) //para poder recibir datos en formato URL
-app.use(cors())
+app.use(bodyParser.urlencoded({ extended: false })); 
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true
+  }))
+app.use(bodyParser.json()); // antiguamente app.use(express.json())
+app.use(cookieParser());
 // importamos enrutamiento
 const UserRouter = require('./routes/UserRouter')
 const ProductRouter = require('./routes/ProductRouter')
-const PayRouter = require('./routes/PayRouter')
+const CartRouter = require('./routes/CartRouter')
+const OrderRouter = require('./routes/OrderRouter')
 
 // utilizo los enrutamientos en el servidor
 app.use('/api', UserRouter)
 app.use('/api', ProductRouter)
-app.use ('/api', PayRouter)
+app.use ('/api', OrderRouter)
+app.use ('/api', CartRouter)
 // importamos cors para que el servidor pueda ser accedido desde cualquier lugar
 
 

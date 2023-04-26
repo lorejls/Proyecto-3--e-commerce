@@ -57,10 +57,10 @@ console.log(productId)
 
   return (
     <div className="main-container">
-     <Form onSubmit={modifySubmit}>
-        <FormGroup>
-          <Label for="image" hidden>
-            Selecciona una imagen
+     <Form onSubmit={modifySubmit} className="input top">
+        <FormGroup className="input">
+          <Label for="image" className="label">
+            Imagen
           </Label>
           <Input
             id="productImage"
@@ -71,8 +71,8 @@ console.log(productId)
             onChange={onChangeInput}
           />
         </FormGroup>{" "}
-        <FormGroup>
-          <Label for="title" hidden>
+        <FormGroup className="input">
+          <Label for="title" className="label">
             Título
           </Label>
           <Input
@@ -84,8 +84,8 @@ console.log(productId)
             onChange={onChangeInput}
           />
         </FormGroup>{" "}
-        <FormGroup>
-          <Label for="description" hidden>
+        <FormGroup className="input">
+          <Label for="description" className="label">
             Descripción
           </Label>
           <Input
@@ -97,8 +97,8 @@ console.log(productId)
             onChange={onChangeInput}
           />
         </FormGroup>{" "}
-        <FormGroup>
-          <Label for="price" hidden>
+        <FormGroup className="input">
+          <Label for="price" className="label">
             Precio
           </Label>
           <Input
@@ -110,8 +110,8 @@ console.log(productId)
             onChange={onChangeInput}
           />
         </FormGroup>{" "}
-        <FormGroup>
-          <Label for="stock" hidden>
+        <FormGroup className="input">
+          <Label for="stock" className="label">
             Stock disponible
           </Label>
           <Input
@@ -123,10 +123,11 @@ console.log(productId)
             onChange={onChangeInput}
           />
         </FormGroup>{" "}
-        <FormGroup check>
-          <Label>Categoría:</Label>
-          <FormGroup check>
-            <Label check>
+        <FormGroup className="input" check>
+          <Label className="label left">Categoría* :</Label>
+          <div className="radio">
+          <FormGroup className="input" check>
+            <Label className="label"check>
               <Input
                 type="radio"
                 name="category"
@@ -137,8 +138,8 @@ console.log(productId)
               Verdura
             </Label>
           </FormGroup>
-          <FormGroup check>
-            <Label check>
+          <FormGroup className="input" check>
+            <Label className="label" check>
               <Input
                 type="radio"
                 name="category"
@@ -148,11 +149,14 @@ console.log(productId)
               {" "}
               Fruta
             </Label>
-          </FormGroup>
+          </FormGroup></div>
         </FormGroup>
-        <Link to={'/my-products'}><Button>Cancelar</Button></Link>
-        <Button>Aceptar</Button>
+        <div className="botones">
+        <button className='button black'>Aceptar</button>
+        <Link to={'/my-products'}><button className='button white'>Cancelar</button></Link>
+        </div>
         </Form>
+        
     </div>
   )
 };

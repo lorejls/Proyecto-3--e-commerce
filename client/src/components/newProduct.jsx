@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { Form, FormGroup, Label, Input} from "reactstrap";
 import axios from "axios";
+import { Link } from "react-router-dom";
+
 
 
 
@@ -49,10 +51,10 @@ const NewProduct=()=> {
 
   return (
     <div className="main-container">
-    <Form onSubmit={productSubmit}>
-        <FormGroup>
-          <Label for="image" hidden>
-            Selecciona una imagen
+    <Form onSubmit={productSubmit} className="input top">
+        <FormGroup className="input">
+          <Label for="image" className="label">
+            Imagen*
           </Label>
           <Input
             id="productImage"
@@ -63,22 +65,22 @@ const NewProduct=()=> {
             onChange={onChangeInput}
           ></Input>
         </FormGroup>{" "}
-        <FormGroup>
-          <Label for="title" hidden>
-            Título
+        <FormGroup className="input">
+          <Label for="title" className="label">
+            Nombre*
           </Label>
           <Input
             id="productTitle"
             name="title"
             value={product.title}
-            placeholder="Describe tu producto"
+            placeholder="Nombre del producto"
             type="text"
             onChange={onChangeInput}
           />
         </FormGroup>{" "}
-        <FormGroup>
-          <Label for="description" hidden>
-            Descripción
+        <FormGroup className="input">
+          <Label for="description" className="label">
+            Descripción*
           </Label>
           <Input
             id="productDescription"
@@ -89,9 +91,9 @@ const NewProduct=()=> {
             onChange={onChangeInput}
           />
         </FormGroup>{" "}
-        <FormGroup>
-          <Label for="price" hidden>
-            Precio
+        <FormGroup className="input">
+          <Label for="price" className="label">
+            Precio €/kg*
           </Label>
           <Input
             id="productPrice"
@@ -102,9 +104,9 @@ const NewProduct=()=> {
             onChange={onChangeInput}
           />
         </FormGroup>{" "}
-        <FormGroup>
-          <Label for="stock" hidden>
-            Stock disponible
+        <FormGroup className="input">
+          <Label for="stock" className="label">
+            Stock disponible kg*
           </Label>
           <Input
             id="productPrice"
@@ -115,10 +117,11 @@ const NewProduct=()=> {
             onChange={onChangeInput}
           />
         </FormGroup>{" "}
-        <FormGroup check>
-          <Label>Categoría:</Label>
-          <FormGroup check>
-            <Label check>
+        <FormGroup className="input" check>
+          <Label className="label left">Categoría* :</Label>
+          <div className="radio">
+          <FormGroup className="input" check>
+            <Label className="label"check>
               <Input
                 type="radio"
                 name="category"
@@ -129,8 +132,8 @@ const NewProduct=()=> {
               Verdura
             </Label>
           </FormGroup>
-          <FormGroup check>
-            <Label check>
+          <FormGroup className="input" check>
+            <Label className="label" check>
               <Input
                 type="radio"
                 name="category"
@@ -140,9 +143,13 @@ const NewProduct=()=> {
               {" "}
               Fruta
             </Label>
-          </FormGroup>
+          </FormGroup></div>
         </FormGroup>
-        <Button>Aceptar</Button>
+        <div className="botones">
+        <button className='button black'>Aceptar</button>
+        <Link to={'/my-home'}><button className='button white'>Cancelar</button></Link>
+        </div>
+        {/* <Button>Aceptar</Button> */}
         </Form>
         <div
         className="alert alert-primary"
