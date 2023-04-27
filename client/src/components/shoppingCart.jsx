@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Button } from 'reactstrap';
+import FOTO from "../components/img/fyv.jpg";
+import Card from "react-bootstrap/Card";
+import {BsTrashFill} from "react-icons/bs";
 import { wrapper } from 'axios-cookiejar-support';
 import Cookie from 'tough-cookie';
 
@@ -29,6 +31,32 @@ const ShoppingCart = () => {
     setCart(response.data.cart)
   };
 
+
+  const deleteProduct = async (productId) => {
+    console.log(productId);
+    // localStorage.setItem('producto',productId)
+    let option = window.confirm("¿Seguro que deseas eliminar este producto?");
+    if (option == true) {
+      try {
+        const response = await axiosWithCookies.delete(
+          'http://localhost:5000/api/cart',
+          {
+            headers: {
+              Authorization: token,
+            },
+          }
+        );
+        console.log(response);
+        // localStorage.removeItem('producto')
+        setTimeout(() => {
+          window.location.href = "/cart";
+        }, 2000);
+      } catch (error) {
+        console.log(error.response);
+      }
+    }
+  };
+
   const handlePayment = async() =>{
     try {
       console.log(token)
@@ -42,13 +70,27 @@ const ShoppingCart = () => {
     console.log(response)
     setMessage(response.data.message)
     setTimeout(()=>{
-        window.location.href="/my-profile" 
+        window.location.href="/productos" 
     },3000)
     
     } catch (error) {
       console.log(error.response)
     }
   }
+  // const addToCart = async (productId, valor) => {
+  //   const response = await axiosWithCookies.post(
+  //     'http://localhost:5000/api/cart',
+  //     { productId, valor },
+  //     {
+  //       headers: {
+  //         Authorization: token
+  //       }
+  //     }
+  //   );
+  //   console.log(response);
+  //   setCart(response.data.cart);
+  //   // localStorage.setItem("cartId", response.data.newCart._id)
+  // };
 
   useEffect(() => {
     getCart();
@@ -60,23 +102,45 @@ const ShoppingCart = () => {
     <div className="main-container">
       {cart.map((producto) => {
         return (
-            <div>
-            <Link key={producto._id}>
-            <p>Nombre: {producto.name}</p>
-            <p>Precio: €/kg {producto.price}</p>
-            {/* <p>Description: {producto.description}</p> */}
-            <p>Cantidad: {producto.quantity} kg</p>
-            <Link to={`/product/${producto._id}`}>
-            <Button>Ver producto</Button>
-            </Link>
+          <div key={producto._id}>
+          {console.log(producto._id)}
+          <Link className="link" key={producto._id}>
+            <Card className="margin-bottom text-card" style={{ width: "18rem" }}>
+              <Card.Img variant="top" src={FOTO} />
+              <Card.Body>
+                <Card.Title>Producto: {producto.name}</Card.Title>
+                <Card.Text>Cantidad: {producto.quantity} kg</Card.Text>
+                <Card.Text>Precio: € {producto.price} /kg</Card.Text>
+                <div>
+                <button className="button narrow red"
+                  onClick={() => {
+                    deleteProduct(producto._id);
+                  }}
+                ><BsTrashFill/>
+                </button>
+                  <button className="button black narrow">
+                    + 1kg
+                  </button>
+                </div>
+              </Card.Body>
+            </Card>
           </Link>
-          </div>
+        </div>
+              // <div className="card">
+              //   <h2>Nombre: {producto.name}</h2>
+              //   <h3>Precio: €/kg {producto.price}</h3>
+              //   <h3>Cantidad: {producto.quantity} kg</h3>
+              // </div>
+
         );
       })}
-          <p>Total: {total} €</p>
-          <button onClick={handlePayment}>
-            Pagar
-            </button>
+      <Card.Title>Total: {total} €</Card.Title>
+          <div className="botones">
+          <button className='button black' onClick={handlePayment} >Pagar</button>
+        <Link to={'/productos'}><button className='button white'>Cancelar</button></Link></div>
+          {/* // <button onClick={handlePayment}>
+          //   Pagar
+          //   </button> */}
             <div style={{display: message ? 'block' : 'none'}}>{message}</div>
     </div>
   );

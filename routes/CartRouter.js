@@ -57,43 +57,43 @@ await Product.findOneAndUpdate({ _id: productId }, { stock: product.stock });
 }
 });
 
-// CartRouter.delete('/cart', auth, async (req, res) => {
-//     try {
-//       const {productId} = req.body;
+CartRouter.delete('/cart', auth, async (req, res) => {
+    try {
+      const {productId} = req.body;
   
-//       // Si el carrito no existe, no podemos quitar productos
-//       if (!req.session.cart) {
-//         return res.status(404).json({ message: 'El carrito no existe' });
-//       }
+      // Si el carrito no existe, no podemos quitar productos
+      if (!req.session.cart) {
+        return res.status(404).json({ message: 'El carrito no existe' });
+      }
   
-//       // Buscamos si el producto está en el carrito
-//       const itemIndex = req.session.cart.findIndex(item => item.productId === productId);
+      // Buscamos si el producto está en el carrito
+      const itemIndex = req.session.cart.findIndex(item => item.productId === productId);
   
-//       // Si el producto no está en el carrito, devolvemos un error
-//       if (itemIndex === -1) {
-//         return res.status(404).json({ message: 'El producto no está en el carrito' });
-//       }
+      // Si el producto no está en el carrito, devolvemos un error
+      if (itemIndex === -1) {
+        return res.status(404).json({ message: 'El producto no está en el carrito' });
+      }
   
-//       // Obtenemos la cantidad del producto que se va a eliminar
-//       const quantity = req.session.cart[itemIndex].quantity;
+      // Obtenemos la cantidad del producto que se va a eliminar
+      const quantity = req.session.cart[itemIndex].quantity;
   
-//       // Quitamos el producto del carrito
-//       req.session.cart.splice(itemIndex, 1);
+      // Quitamos el producto del carrito
+      req.session.cart.splice(itemIndex, 1);
   
-//       // Añadimos la cantidad comprada del stock del producto
-//       const product = await Product.findById(productId);
-//       product.stock += quantity;
+      // Añadimos la cantidad comprada del stock del producto
+      const product = await Product.findById(productId);
+      product.stock += quantity;
   
-//       // Actualizamos el stock en la base de datos
-//       await Product.findOneAndUpdate({ _id: productId }, { stock: product.stock });
+      // Actualizamos el stock en la base de datos
+      await Product.findOneAndUpdate({ _id: productId }, { stock: product.stock });
   
-//       // Enviamos la respuesta
-//       res.json({ message: 'Producto eliminado del carrito', cart: req.session.cart });
-//     } catch (error) {
-//       console.error(error);
-//       res.status(500).json({ message: 'Ha ocurrido un error al eliminar el producto del carrito' });
-//     }
-//   });
+      // Enviamos la respuesta
+      res.json({ message: 'Producto eliminado del carrito', cart: req.session.cart });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Ha ocurrido un error al eliminar el producto del carrito' });
+    }
+  });
 
 
 

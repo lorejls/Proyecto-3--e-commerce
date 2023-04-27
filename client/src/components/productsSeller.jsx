@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { Link} from "react-router-dom";
 import FOTO from "../components/img/fyv.jpg";
 import Card from "react-bootstrap/Card";
 import {FaPlus} from "react-icons/fa";

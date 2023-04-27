@@ -102,6 +102,9 @@ const HeaderNav = () => {
             <Navbar.Brand href="/">
               <img src={Logo1} alt="logo mercat" />
             </Navbar.Brand>
+            <Nav.Link href="/login">
+            <FiShoppingCart className="icon-white" />
+            </Nav.Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
